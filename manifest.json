@@ -1,0 +1,22 @@
+{
+  "name": "SRG - Société de Rechange et Garniture",
+  "short_name": "SRG",
+  "description": "Suivi du stock, dashboard et alertes en lecture seule",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F4F4F4",
+  "theme_color": "#C0392B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
