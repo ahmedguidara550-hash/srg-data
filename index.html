@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- v1782023984 -->
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -183,7 +183,7 @@ async function loadData() {
   const syncBar   = document.getElementById("sync-bar");
   const syncTime  = document.getElementById("sync-time");
 
-  if (!DATA_URL || DATA_URL.includes("https://raw.githubusercontent.com/ahmedguidara550-hash/srg-data/main/data_26c78121c64e1aa9.json")) {
+  if (!DATA_URL || DATA_URL === "https://raw.githubusercontent.com/ahmedguidara550-hash/srg-data/main/data_26c78121c64e1aa9.json") {
     showSetupRequired();
     return;
   }
