@@ -10,114 +10,113 @@
 <title>SRG — Stock & Alertes</title>
 <link rel="manifest" href="manifest.json">
 <style>
-  :root {
-    --red: #C0392B; --red-dark: #A93226; --red-light: #FDECEA;
-    --white: #FFFFFF; --bg: #F4F4F4; --dark: #1A1A1A;
-    --gray: #777; --lgray: #E8E8E8; --green: #27AE60; --orange: #E67E22;
-    --shadow: 0 2px 8px rgba(0,0,0,0.10);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--bg);
-         color: var(--dark); min-height: 100vh; padding-bottom: 70px; }
+:root {
+  --red:#C0392B; --red-dark:#A93226; --red-light:#FDECEA;
+  --white:#FFFFFF; --bg:#F4F4F4; --dark:#1A1A1A;
+  --gray:#777; --lgray:#E8E8E8; --green:#27AE60; --orange:#E67E22;
+  --blue:#2980B9; --shadow:0 2px 8px rgba(0,0,0,0.10);
+}
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg);
+       color:var(--dark); min-height:100vh; padding-bottom:70px; }
 
-  header { background: var(--red); color: white; padding: 14px 16px 12px;
-           position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
-  header h1 { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
-  header p  { font-size: 11px; opacity: 0.75; margin-top: 1px; }
-  .ro-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.18);
-              border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 700;
-              margin-top: 8px; }
+header { background:var(--red); color:white; padding:14px 16px 12px;
+         position:sticky; top:0; z-index:100; box-shadow:var(--shadow); }
+header h1 { font-size:22px; font-weight:800; letter-spacing:1px; }
+header p  { font-size:11px; opacity:0.75; margin-top:1px; }
+.ro-badge { display:inline-flex; align-items:center; gap:4px;
+            background:rgba(255,255,255,0.18); border-radius:20px;
+            padding:3px 10px; font-size:10px; font-weight:700; margin-top:8px; }
 
-  .sync-bar { padding: 8px 16px; font-size: 11px; color: var(--gray);
-              display: flex; justify-content: space-between; align-items: center;
-              background: white; border-bottom: 1px solid var(--lgray); }
-  .sync-bar.offline { background: #FEF9E7; color: var(--orange); }
-  .sync-bar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green);
-                   display: inline-block; margin-right: 5px; }
-  .sync-bar.offline .dot { background: var(--orange); }
+.sync-bar { padding:8px 16px; font-size:11px; color:var(--gray);
+            display:flex; justify-content:space-between; align-items:center;
+            background:white; border-bottom:1px solid var(--lgray); }
+.sync-bar.offline { background:#FEF9E7; color:var(--orange); }
+.dot { width:7px; height:7px; border-radius:50%; background:var(--green);
+       display:inline-block; margin-right:5px; }
+.sync-bar.offline .dot { background:var(--orange); }
 
-  nav { position: fixed; bottom: 0; left: 0; right: 0; height: 62px;
-        background: white; display: flex; border-top: 1px solid var(--lgray);
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.08); z-index: 200; }
-  nav button { flex: 1; border: none; background: transparent; padding: 6px 4px;
-               font-size: 10px; color: var(--gray); cursor: pointer;
-               display: flex; flex-direction: column; align-items: center; gap: 2px; }
-  nav button.active { color: var(--red); }
-  nav button.active span.lbl { font-weight: 700; }
-  nav button span.icon { font-size: 20px; line-height: 1; }
+nav { position:fixed; bottom:0; left:0; right:0; height:62px;
+      background:white; display:flex; border-top:1px solid var(--lgray);
+      box-shadow:0 -2px 10px rgba(0,0,0,0.08); z-index:200; }
+nav button { flex:1; border:none; background:transparent; padding:6px 4px;
+             font-size:10px; color:var(--gray); cursor:pointer;
+             display:flex; flex-direction:column; align-items:center; gap:2px; }
+nav button.active { color:var(--red); }
+nav button.active span.lbl { font-weight:700; }
+nav button span.icon { font-size:20px; line-height:1; }
 
-  .tab { display: none; padding: 12px; }
-  .tab.active { display: block; }
+.tab { display:none; padding:12px; }
+.tab.active { display:block; }
 
-  .card { background: white; border-radius: 12px; box-shadow: var(--shadow);
-          margin-bottom: 12px; overflow: hidden; }
-  .card-header { padding: 12px 16px; font-size: 13px; font-weight: 700;
-                 border-bottom: 1px solid var(--lgray); }
+.card { background:white; border-radius:12px; box-shadow:var(--shadow);
+        margin-bottom:12px; overflow:hidden; }
+.card-hdr { padding:12px 16px; font-size:13px; font-weight:700;
+            border-bottom:1px solid var(--lgray); }
 
-  .search-bar { margin-bottom: 12px; }
-  .search-bar input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--lgray);
-                      border-radius: 10px; font-size: 14px; outline: none; background: white; }
-  .search-bar input:focus { border-color: var(--red); }
+.search-wrap { margin-bottom:12px; }
+.search-wrap input { width:100%; padding:11px 14px; border:1.5px solid var(--lgray);
+                     border-radius:10px; font-size:14px; outline:none; background:white; }
+.search-wrap input:focus { border-color:var(--red); }
 
-  .piece-item { padding: 12px 16px; border-bottom: 1px solid #F0F0F0;
-                display: flex; align-items: center; gap: 12px; }
-  .piece-item:last-child { border-bottom: none; }
-  .piece-item.alerte { background: var(--red-light); }
-  .piece-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--lgray);
-                display: flex; align-items: center; justify-content: center; font-size: 20px;
-                flex-shrink: 0; }
-  .piece-icon.alerte { background: var(--red); }
-  .piece-info { flex: 1; min-width: 0; }
-  .piece-nom { font-size: 14px; font-weight: 600; white-space: nowrap;
-               overflow: hidden; text-overflow: ellipsis; }
-  .piece-ref { font-size: 11px; color: var(--gray); margin-top: 1px; }
-  .piece-right { text-align: right; flex-shrink: 0; }
-  .piece-prix { font-size: 14px; font-weight: 700; color: var(--red); }
-  .piece-stock { font-size: 11px; margin-top: 2px; }
-  .piece-stock.ok   { color: var(--green); }
-  .piece-stock.warn { color: var(--orange); }
-  .piece-stock.bad  { color: var(--red); font-weight: 700; }
+.piece-item { padding:12px 16px; border-bottom:1px solid #F0F0F0;
+              display:flex; align-items:center; gap:12px; }
+.piece-item:last-child { border-bottom:none; }
+.piece-item.alerte { background:var(--red-light); }
+.pico { width:42px; height:42px; border-radius:10px; background:var(--lgray);
+        display:flex; align-items:center; justify-content:center; font-size:20px;
+        flex-shrink:0; }
+.pico.al { background:var(--red); }
+.pinfo { flex:1; min-width:0; }
+.pnom { font-size:14px; font-weight:600; white-space:nowrap;
+        overflow:hidden; text-overflow:ellipsis; }
+.pref { font-size:11px; color:var(--gray); margin-top:1px; }
+.pright { text-align:right; flex-shrink:0; }
+.pprix { font-size:14px; font-weight:700; color:var(--red); }
+.pstock { font-size:11px; margin-top:2px; }
+.pstock.ok   { color:var(--green); }
+.pstock.warn { color:var(--orange); }
+.pstock.bad  { color:var(--red); font-weight:700; }
 
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-  .stat-card { border-radius: 12px; padding: 16px 14px; color: white; }
-  .stat-card .val { font-size: 22px; font-weight: 800; }
-  .stat-card .lbl { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+.stat-card { border-radius:12px; padding:16px 14px; color:white; }
+.stat-val { font-size:22px; font-weight:800; }
+.stat-lbl { font-size:11px; opacity:0.85; margin-top:2px; }
 
-  .alerte-item { padding: 12px 16px; border-bottom: 1px solid #F0F0F0;
-                 display: flex; justify-content: space-between; align-items: center; }
-  .alerte-item:last-child { border-bottom: none; }
-  .alerte-nom { font-size: 13px; font-weight: 600; }
-  .alerte-ref { font-size: 11px; color: var(--gray); }
-  .alerte-qty { text-align: right; }
-  .alerte-qty .current { font-size: 18px; font-weight: 800; color: var(--red); }
-  .alerte-qty .min { font-size: 11px; color: var(--gray); }
+.alerte-item { padding:12px 16px; border-bottom:1px solid #F0F0F0;
+               display:flex; justify-content:space-between; align-items:center; }
+.alerte-item:last-child { border-bottom:none; }
+.alerte-nom { font-size:13px; font-weight:600; }
+.alerte-ref { font-size:11px; color:var(--gray); }
+.alerte-qty { text-align:right; }
+.aq-cur { font-size:18px; font-weight:800; color:var(--red); }
+.aq-min { font-size:11px; color:var(--gray); }
 
-  .empty { text-align: center; padding: 40px 20px; color: var(--gray); }
-  .empty .icon { font-size: 48px; margin-bottom: 10px; }
-  .empty p { font-size: 14px; }
+.empty { text-align:center; padding:40px 20px; color:var(--gray); }
+.empty .eico { font-size:48px; margin-bottom:10px; }
+.empty p { font-size:14px; }
 
-  .spinner { width: 32px; height: 32px; border: 3px solid var(--lgray);
-             border-top-color: var(--red); border-radius: 50%;
-             animation: spin .7s linear infinite; margin: 40px auto; }
-  @keyframes spin { to { transform: rotate(360deg); } }
+.spinner { width:32px; height:32px; border:3px solid var(--lgray);
+           border-top-color:var(--red); border-radius:50%;
+           animation:spin .7s linear infinite; margin:40px auto; }
+@keyframes spin { to { transform:rotate(360deg); } }
 
-  .setup-box { background: white; border-radius: 12px; padding: 20px; margin: 20px 12px;
-               box-shadow: var(--shadow); text-align: center; }
-  .setup-box h3 { font-size: 16px; margin-bottom: 8px; }
-  .setup-box p { font-size: 13px; color: var(--gray); line-height: 1.5; }
-  .setup-box code { background: var(--lgray); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+.err-box { background:white; border-radius:12px; padding:20px; margin:20px;
+           box-shadow:var(--shadow); text-align:center; }
+.err-box h3 { font-size:16px; margin-bottom:8px; }
+.err-box p  { font-size:13px; color:var(--gray); line-height:1.5; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>SRG</h1>
-  <p>Société de Rechange et Garniture</p>
-  <span class="ro-badge">👁  Lecture seule</span>
+  <p>Societe de Rechange et Garniture</p>
+  <span class="ro-badge">Lecture seule</span>
 </header>
 
 <div class="sync-bar" id="sync-bar">
-  <span><span class="dot"></span><span id="sync-text">Chargement…</span></span>
+  <span><span class="dot"></span><span id="sync-text">Chargement...</span></span>
   <span id="sync-time"></span>
 </div>
 
@@ -126,8 +125,8 @@
 </div>
 
 <div id="tab-stock" class="tab">
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="🔍 Rechercher une pièce..." oninput="renderStock()">
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Rechercher une piece..." oninput="renderStock()">
   </div>
   <div class="card" id="stock-list"><div class="spinner"></div></div>
 </div>
@@ -138,212 +137,188 @@
 
 <nav>
   <button class="active" onclick="showTab('dashboard',this)">
-    <span class="icon">📊</span><span class="lbl">Dashboard</span>
+    <span class="icon">&#128202;</span><span class="lbl">Dashboard</span>
   </button>
   <button onclick="showTab('stock',this)">
-    <span class="icon">📦</span><span class="lbl">Stock</span>
+    <span class="icon">&#128230;</span><span class="lbl">Stock</span>
   </button>
   <button onclick="showTab('alertes',this)">
-    <span class="icon">⚠️</span><span class="lbl">Alertes</span>
+    <span class="icon">&#9888;&#65039;</span><span class="lbl">Alertes</span>
   </button>
 </nav>
 
 <script>
-// ═══════════════════════════════════════════
-//  CONFIGURATION — Remplacé automatiquement par github_sync.py --setup
-// ═══════════════════════════════════════════
-const DATA_URL = "https://raw.githubusercontent.com/ahmedguidara550-hash/srg-data/main/data_8184103f8b8acfe2.json";
-
-const CACHE_KEY = "srg_mobile_cache_v1";
-let state = { data: null };
+// URL du fichier de configuration — pointe vers config.json sur GitHub
+// Ce fichier contient l'URL reelle des donnees (pas d'injection dans le HTML)
+var REPO_BASE = "https://raw.githubusercontent.com/ahmedguidara550-hash/srg-data/main/";
+var CONFIG_URL = REPO_BASE + "srg_config.json";
+var CACHE_KEY  = "srg_data_v2";
+var state = { data: null };
 
 function showTab(name, btn) {
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  var tabs = document.querySelectorAll(".tab");
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("active");
+  var btns = document.querySelectorAll("nav button");
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove("active");
   document.getElementById("tab-" + name).classList.add("active");
   btn.classList.add("active");
 }
 
-function fmt(n) { return Number(n||0).toLocaleString("fr-DZ", {minimumFractionDigits:2}) + " DZD"; }
+function fmt(n) {
+  return Number(n || 0).toLocaleString("fr-DZ", {minimumFractionDigits: 2}) + " DZD";
+}
 
-function timeAgo(isoStr) {
-  if (!isoStr) return "";
-  const diffMs = Date.now() - new Date(isoStr).getTime();
-  const mins = Math.floor(diffMs / 60000);
-  if (mins < 1) return "à l'instant";
-  if (mins < 60) return `il y a ${mins} min`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `il y a ${hrs}h`;
-  const days = Math.floor(hrs / 24);
-  return `il y a ${days}j`;
+function timeAgo(iso) {
+  if (!iso) return "";
+  var diff = Date.now() - new Date(iso).getTime();
+  var m = Math.floor(diff / 60000);
+  if (m < 1)  return "a l instant";
+  if (m < 60) return "il y a " + m + " min";
+  var h = Math.floor(m / 60);
+  if (h < 24) return "il y a " + h + "h";
+  return "il y a " + Math.floor(h / 24) + "j";
+}
+
+function setSyncStatus(online, text, time) {
+  var bar = document.getElementById("sync-bar");
+  bar.className = "sync-bar" + (online ? "" : " offline");
+  document.getElementById("sync-text").textContent = text;
+  document.getElementById("sync-time").textContent = time || "";
+}
+
+function loadFromCache() {
+  try {
+    var c = localStorage.getItem(CACHE_KEY);
+    if (c) { state.data = JSON.parse(c); return true; }
+  } catch(e) {}
+  return false;
+}
+
+function saveToCache(data) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
 }
 
 async function loadData() {
-  const syncText = document.getElementById("sync-text");
-  const syncBar   = document.getElementById("sync-bar");
-  const syncTime  = document.getElementById("sync-time");
-
-  if (!DATA_URL || DATA_URL === "https://raw.githubusercontent.com/ahmedguidara550-hash/srg-data/main/data_8184103f8b8acfe2.json") {
-    showSetupRequired();
-    return;
-  }
-
   try {
-    const controller = new AbortController();
-    const timeoutId  = setTimeout(() => controller.abort(), 10000); // 10s timeout
-    const res = await fetch(DATA_URL + "?t=" + Date.now(), {
-      cache: "no-store",
-      signal: controller.signal
-    });
-    clearTimeout(timeoutId);
+    // Etape 1: charger config.json pour obtenir l URL des donnees
+    var cfgResp = await fetch(CONFIG_URL + "?t=" + Date.now(), {cache: "no-store"});
+    if (!cfgResp.ok) throw new Error("config " + cfgResp.status);
+    var cfg = await cfgResp.json();
+    var dataUrl = cfg.data_url;
+    if (!dataUrl) throw new Error("data_url absent dans config.json");
 
-    if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
-    const data = await res.json();
+    // Etape 2: charger les donnees reelles
+    var dataResp = await fetch(dataUrl + "?t=" + Date.now(), {cache: "no-store"});
+    if (!dataResp.ok) throw new Error("data " + dataResp.status);
+    var data = await dataResp.json();
+
     state.data = data;
-    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-
-    syncBar.classList.remove("offline");
-    syncText.textContent = "Données à jour";
-    syncTime.textContent = timeAgo(data.exported_at);
+    saveToCache(data);
+    setSyncStatus(true, "Donnees a jour", timeAgo(data.exported_at));
     renderAll();
 
-  } catch (err) {
-    console.error("SRG fetch error:", err.message);
-    // Essayer le cache local
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-      try {
-        state.data = JSON.parse(cached);
-        syncBar.classList.add("offline");
-        syncText.textContent = "Hors-ligne — dernières données";
-        syncTime.textContent = timeAgo(state.data.exported_at);
-        renderAll();
-        return;
-      } catch(e) { /* cache corrompu */ }
+  } catch(err) {
+    console.error("SRG load error:", err.message);
+    if (loadFromCache()) {
+      setSyncStatus(false, "Hors-ligne - dernieres donnees", timeAgo(state.data.exported_at));
+      renderAll();
+    } else {
+      setSyncStatus(false, "Erreur: " + err.message, "");
+      showError(err.message);
     }
-    // Aucun cache disponible — afficher l'erreur
-    syncBar.classList.add("offline");
-    syncText.textContent = "Erreur de connexion";
-    syncTime.textContent = "";
-    showError(err.message);
   }
 }
 
-function renderAll() {
-  renderDashboard();
-  renderStock();
-  renderAlertes();
-}
+function renderAll() { renderDashboard(); renderStock(); renderAlertes(); }
 
 function renderDashboard() {
-  const d  = state.data;
-  const el = document.getElementById("dash-content");
-  const r  = d.rapport_du_jour;
-  const alertBg = d.stats.alertes_stock > 0 ? "#E67E22" : "#27AE60";
+  var d  = state.data;
+  var el = document.getElementById("dash-content");
+  var r  = d.rapport_du_jour;
+  var alertBg = d.stats.alertes_stock > 0 ? "#E67E22" : "#27AE60";
 
-  // Pieces vendues — construire en dehors du template principal
-  let pvHTML = "";
-  if (r.pieces_vendues.length) {
-    r.pieces_vendues.forEach(function(pv) {
-      pvHTML += "<div class='piece-item'>"
-        + "<div class='piece-icon'>🔩</div>"
-        + "<div class='piece-info'><div class='piece-nom'>" + pv.nom + "</div></div>"
-        + "<div class='piece-right'>"
-        + "<div class='piece-prix'>" + fmt(pv.total) + "</div>"
-        + "<div class='piece-stock ok'>Qté: " + pv.qte + "</div>"
-        + "</div></div>";
-    });
+  var pvHTML = "";
+  if (r.pieces_vendues && r.pieces_vendues.length) {
+    for (var i = 0; i < r.pieces_vendues.length; i++) {
+      var pv = r.pieces_vendues[i];
+      pvHTML += "<div class='piece-item'><div class='pico'>&#128299;</div>"
+        + "<div class='pinfo'><div class='pnom'>" + pv.nom + "</div></div>"
+        + "<div class='pright'><div class='pprix'>" + fmt(pv.total) + "</div>"
+        + "<div class='pstock ok'>Qte: " + pv.qte + "</div></div></div>";
+    }
   } else {
-    pvHTML = "<div class='empty' style='padding:24px'><p>Aucune vente aujourd'hui</p></div>";
+    pvHTML = "<div class='empty' style='padding:20px'><p>Aucune vente aujourd'hui</p></div>";
   }
 
   el.innerHTML = "<div class='stats-grid'>"
-    + "<div class='stat-card' style='background:#C0392B'><div class='val'>" + d.stats.total_pieces + "</div><div class='lbl'>Pièces en stock</div></div>"
-    + "<div class='stat-card' style='background:" + alertBg + "'><div class='val'>" + d.stats.alertes_stock + "</div><div class='lbl'>Alerte(s) stock</div></div>"
-    + "<div class='stat-card' style='background:#2980B9'><div class='val'>" + r.nb_factures + "</div><div class='lbl'>Factures aujourd'hui</div></div>"
-    + "<div class='stat-card' style='background:#27AE60'><div class='val'>" + fmt(r.ca) + "</div><div class='lbl'>CA du jour</div></div>"
+    + "<div class='stat-card' style='background:#C0392B'><div class='stat-val'>" + d.stats.total_pieces + "</div><div class='stat-lbl'>Pieces en stock</div></div>"
+    + "<div class='stat-card' style='background:" + alertBg + "'><div class='stat-val'>" + d.stats.alertes_stock + "</div><div class='stat-lbl'>Alerte(s)</div></div>"
+    + "<div class='stat-card' style='background:#2980B9'><div class='stat-val'>" + r.nb_factures + "</div><div class='stat-lbl'>Factures aujourd'hui</div></div>"
+    + "<div class='stat-card' style='background:#27AE60'><div class='stat-val'>" + fmt(r.ca) + "</div><div class='stat-lbl'>CA du jour</div></div>"
     + "</div>"
-    + "<div class='card'><div class='card-header'>📦 Pièces vendues aujourd'hui</div>"
+    + "<div class='card'><div class='card-hdr'>Pieces vendues aujourd'hui</div>"
     + pvHTML + "</div>";
 }
 
 function renderStock() {
   if (!state.data) return;
-  const q      = (document.getElementById("search-input") && document.getElementById("search-input").value || "").toLowerCase();
-  const pieces = state.data.pieces.filter(function(p) {
-    return p.nom.toLowerCase().includes(q) || (p.reference || "").toLowerCase().includes(q);
+  var inp = document.getElementById("search-input");
+  var q   = inp ? inp.value.toLowerCase() : "";
+  var pieces = state.data.pieces.filter(function(p) {
+    return p.nom.toLowerCase().indexOf(q) >= 0 || (p.reference || "").toLowerCase().indexOf(q) >= 0;
   });
-  const el = document.getElementById("stock-list");
+  var el = document.getElementById("stock-list");
   if (!pieces.length) {
-    el.innerHTML = "<div class='empty'><div class='icon'>📦</div><p>Aucune pièce trouvée</p></div>";
+    el.innerHTML = "<div class='empty'><div class='eico'>&#128230;</div><p>Aucune piece trouvee</p></div>";
     return;
   }
-  let html = "";
-  pieces.forEach(function(p) {
-    const alerte   = p.quantite <= p.qmin;
-    const stockCls = p.quantite === 0 ? "bad" : alerte ? "warn" : "ok";
-    const stockTxt = p.quantite === 0 ? "⛔ Rupture"
-      : alerte ? ("⚠️ Stock bas: " + p.quantite)
-      : ("✅ Stock: " + p.quantite);
-    html += "<div class='piece-item " + (alerte ? "alerte" : "") + "'>"
-      + "<div class='piece-icon " + (alerte ? "alerte" : "") + "'>🔩</div>"
-      + "<div class='piece-info'>"
-      + "<div class='piece-nom'>" + p.nom + "</div>"
-      + "<div class='piece-ref'>" + (p.reference || "") + " • " + (p.categorie || "") + "</div>"
-      + "</div>"
-      + "<div class='piece-right'>"
-      + "<div class='piece-prix'>" + fmt(p.prix_vente) + "</div>"
-      + "<div class='piece-stock " + stockCls + "'>" + stockTxt + "</div>"
-      + "</div></div>";
-  });
+  var html = "";
+  for (var i = 0; i < pieces.length; i++) {
+    var p = pieces[i];
+    var al = p.quantite <= p.qmin;
+    var cls = p.quantite === 0 ? "bad" : (al ? "warn" : "ok");
+    var txt = p.quantite === 0 ? "Rupture" : (al ? ("Bas: " + p.quantite) : ("Stock: " + p.quantite));
+    html += "<div class='piece-item" + (al ? " alerte" : "") + "'>"
+      + "<div class='pico" + (al ? " al" : "") + "'>&#128299;</div>"
+      + "<div class='pinfo'><div class='pnom'>" + p.nom + "</div>"
+      + "<div class='pref'>" + (p.reference || "") + " - " + (p.categorie || "") + "</div></div>"
+      + "<div class='pright'><div class='pprix'>" + fmt(p.prix_vente) + "</div>"
+      + "<div class='pstock " + cls + "'>" + txt + "</div></div></div>";
+  }
   el.innerHTML = html;
 }
 
 function renderAlertes() {
   if (!state.data) return;
-  const alertes = state.data.alertes;
-  const el = document.getElementById("alertes-list");
+  var alertes = state.data.alertes;
+  var el = document.getElementById("alertes-list");
   if (!alertes.length) {
-    el.innerHTML = "<div class='empty'><div class='icon'>✅</div><p>Tous les stocks sont suffisants</p></div>";
+    el.innerHTML = "<div class='empty'><div class='eico'>&#9989;</div><p>Tous les stocks sont suffisants</p></div>";
     return;
   }
-  let html = "<div class='card-header'>⚠️ " + alertes.length + " pièce(s) à réapprovisionner</div>";
-  alertes.forEach(function(p) {
+  var html = "<div class='card-hdr'>&#9888; " + alertes.length + " piece(s) a reapprovisionner</div>";
+  for (var i = 0; i < alertes.length; i++) {
+    var p = alertes[i];
     html += "<div class='alerte-item'>"
       + "<div><div class='alerte-nom'>" + p.nom + "</div>"
-      + "<div class='alerte-ref'>Réf: " + (p.reference || "—") + " | Min: " + p.qmin + "</div></div>"
-      + "<div class='alerte-qty'>"
-      + "<div class='current'>" + p.quantite + "</div>"
-      + "<div class='min'>manque " + p.manquant + "</div>"
-      + "</div></div>";
-  });
+      + "<div class='alerte-ref'>Ref: " + (p.reference || "non") + " | Min: " + p.qmin + "</div></div>"
+      + "<div class='alerte-qty'><div class='aq-cur'>" + p.quantite + "</div>"
+      + "<div class='aq-min'>manque " + p.manquant + "</div></div></div>";
+  }
   el.innerHTML = html;
 }
 
-function showSetupRequired() {
-  document.getElementById("sync-text").textContent = "Configuration requise";
-  document.getElementById("sync-bar").classList.add("offline");
-  document.getElementById("dash-content").innerHTML = `
-    <div class="setup-box">
-      <h3>⚙️ Configuration nécessaire</h3>
-      <p>Sur le PC, lance dans le terminal :<br><br>
-      <code>python github_sync.py --setup</code><br><br>
-      Puis remplace l'URL dans ce fichier mobile.html.</p>
-    </div>`;
+function showError(msg) {
+  document.getElementById("dash-content").innerHTML =
+    "<div class='err-box'><h3>Erreur de connexion</h3>"
+    + "<p>" + msg + "<br><br>Verifiez votre connexion internet.</p></div>";
 }
 
-function showError() {
-  document.getElementById("dash-content").innerHTML = `
-    <div class="empty"><div class="icon">📡</div><p>Impossible de charger les données.<br>Vérifiez votre connexion internet.</p></div>`;
-}
-
-// Enregistrer le service worker pour le cache hors-ligne (PWA)
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(function() {});
 }
 
 loadData();
-// Recharge automatique toutes les 5 minutes si l'app reste ouverte
 setInterval(loadData, 5 * 60 * 1000);
 </script>
 </body>
