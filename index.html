@@ -63,10 +63,6 @@ nav button span.icon { font-size:20px; line-height:1; }
               display:flex; align-items:center; gap:12px; }
 .piece-item:last-child { border-bottom:none; }
 .piece-item.alerte { background:var(--red-light); }
-.pico { width:42px; height:42px; border-radius:10px; background:var(--lgray);
-        display:flex; align-items:center; justify-content:center; font-size:20px;
-        flex-shrink:0; }
-.pico.al { background:var(--red); }
 .pinfo { flex:1; min-width:0; }
 .pnom { font-size:14px; font-weight:600; white-space:nowrap;
         overflow:hidden; text-overflow:ellipsis; }
@@ -241,7 +237,7 @@ function renderDashboard() {
   if (r.pieces_vendues && r.pieces_vendues.length) {
     for (var i = 0; i < r.pieces_vendues.length; i++) {
       var pv = r.pieces_vendues[i];
-      pvHTML += "<div class='piece-item'><div class='pico'>&#128299;</div>"
+      pvHTML += "<div class='piece-item'>"
         + "<div class='pinfo'><div class='pnom'>" + pv.nom + "</div></div>"
         + "<div class='pright'><div class='pprix'>" + fmt(pv.total) + "</div>"
         + "<div class='pstock ok'>Qte: " + pv.qte + "</div></div></div>";
@@ -279,7 +275,7 @@ function renderStock() {
     var cls = p.quantite === 0 ? "bad" : (al ? "warn" : "ok");
     var txt = p.quantite === 0 ? "Rupture" : (al ? ("Bas: " + p.quantite) : ("Stock: " + p.quantite));
     html += "<div class='piece-item" + (al ? " alerte" : "") + "'>"
-      + "<div class='pico" + (al ? " al" : "") + "'>&#128299;</div>"
+      
       + "<div class='pinfo'><div class='pnom'>" + p.nom + "</div>"
       + "<div class='pref'>" + (p.reference || "") + " - " + (p.categorie || "") + "</div></div>"
       + "<div class='pright'><div class='pprix'>" + fmt(p.prix_vente) + "</div>"
