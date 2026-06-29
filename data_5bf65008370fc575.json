@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-06-27T05:52:07.132580",
+  "exported_at": "2026-06-29T01:21:20.808692",
   "stats": {
     "total_pieces": 6,
     "alertes_stock": 2,
@@ -81,7 +81,7 @@
     }
   ],
   "rapport_du_jour": {
-    "date": "2026-06-27",
+    "date": "2026-06-29",
     "ca": 0,
     "profit": 0,
     "nb_factures": 0,
