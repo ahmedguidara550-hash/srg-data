@@ -1,10 +1,10 @@
 {
-  "exported_at": "2026-06-29T01:21:20.808692",
+  "exported_at": "2026-06-29T01:24:16.605651",
   "stats": {
     "total_pieces": 6,
-    "alertes_stock": 2,
-    "factures_aujourd_hui": 0,
-    "ca_aujourd_hui": 0
+    "alertes_stock": 3,
+    "factures_aujourd_hui": 1,
+    "ca_aujourd_hui": 775.0
   },
   "alertes": [
     {
@@ -13,6 +13,14 @@
       "quantite": 4,
       "qmin": 5,
       "manquant": 1,
+      "categorie": ""
+    },
+    {
+      "nom": "1750/17",
+      "reference": "SRG-260604161811",
+      "quantite": 0,
+      "qmin": 2,
+      "manquant": 2,
       "categorie": ""
     },
     {
@@ -29,7 +37,7 @@
       "nom": "1750/17",
       "reference": "SRG-260604161811",
       "categorie": "Courroies",
-      "quantite": 3,
+      "quantite": 0,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -56,7 +64,7 @@
       "nom": "32212",
       "reference": "SRG-260604161650",
       "categorie": "Roulements",
-      "quantite": 15,
+      "quantite": 5,
       "qmin": 3,
       "prix_vente": 70.0,
       "unite": "unité"
@@ -82,9 +90,20 @@
   ],
   "rapport_du_jour": {
     "date": "2026-06-29",
-    "ca": 0,
-    "profit": 0,
-    "nb_factures": 0,
-    "pieces_vendues": []
+    "ca": 775.0,
+    "profit": 315.0,
+    "nb_factures": 1,
+    "pieces_vendues": [
+      {
+        "nom": "32212",
+        "qte": 10,
+        "total": 700.0
+      },
+      {
+        "nom": "1750/17",
+        "qte": 3,
+        "total": 75.0
+      }
+    ]
   }
 }
