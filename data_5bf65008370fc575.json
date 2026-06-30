@@ -1,10 +1,10 @@
 {
-  "exported_at": "2026-07-01T00:04:37.000621",
+  "exported_at": "2026-07-01T00:10:14.711372",
   "stats": {
     "total_pieces": 6,
     "alertes_stock": 0,
-    "factures_aujourd_hui": 0,
-    "ca_aujourd_hui": 0
+    "factures_aujourd_hui": 1,
+    "ca_aujourd_hui": 150.0
   },
   "alertes": [],
   "pieces": [
@@ -21,7 +21,7 @@
       "nom": "1900/17",
       "reference": "SRG-260610232630",
       "categorie": "Courroies",
-      "quantite": 10,
+      "quantite": 4,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -65,9 +65,9 @@
   ],
   "rapport_du_jour": {
     "date": "2026-07-01",
-    "ca": 0,
+    "ca": 150.0,
     "profit": 0,
-    "nb_factures": 0,
+    "nb_factures": 1,
     "pieces_vendues": []
   }
 }
