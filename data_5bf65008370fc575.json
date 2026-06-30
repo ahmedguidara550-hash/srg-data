@@ -1,67 +1,18 @@
 {
-  "exported_at": "2026-07-01T00:01:17.112934",
+  "exported_at": "2026-07-01T00:04:02.050052",
   "stats": {
     "total_pieces": 6,
-    "alertes_stock": 6,
+    "alertes_stock": 0,
     "factures_aujourd_hui": 0,
     "ca_aujourd_hui": 0
   },
-  "alertes": [
-    {
-      "nom": "6205",
-      "reference": "R-5",
-      "quantite": 5,
-      "qmin": 5,
-      "manquant": 0,
-      "categorie": ""
-    },
-    {
-      "nom": "32212",
-      "reference": "SRG-260604161650",
-      "quantite": 0,
-      "qmin": 3,
-      "manquant": 3,
-      "categorie": ""
-    },
-    {
-      "nom": "1750/17",
-      "reference": "SRG-260604161811",
-      "quantite": 2,
-      "qmin": 2,
-      "manquant": 0,
-      "categorie": ""
-    },
-    {
-      "nom": "30216",
-      "reference": "SRG-260610232547",
-      "quantite": 2,
-      "qmin": 4,
-      "manquant": 2,
-      "categorie": ""
-    },
-    {
-      "nom": "1900/17",
-      "reference": "SRG-260610232630",
-      "quantite": 1,
-      "qmin": 2,
-      "manquant": 1,
-      "categorie": ""
-    },
-    {
-      "nom": "6305",
-      "reference": "SRG-260617135515",
-      "quantite": 2,
-      "qmin": 3,
-      "manquant": 1,
-      "categorie": ""
-    }
-  ],
+  "alertes": [],
   "pieces": [
     {
       "nom": "1750/17",
       "reference": "SRG-260604161811",
       "categorie": "Courroies",
-      "quantite": 2,
+      "quantite": 12,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -70,7 +21,7 @@
       "nom": "1900/17",
       "reference": "SRG-260610232630",
       "categorie": "Courroies",
-      "quantite": 1,
+      "quantite": 10,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -79,7 +30,7 @@
       "nom": "30216",
       "reference": "SRG-260610232547",
       "categorie": "Roulements",
-      "quantite": 2,
+      "quantite": 20,
       "qmin": 4,
       "prix_vente": 90.0,
       "unite": "unité"
@@ -88,7 +39,7 @@
       "nom": "32212",
       "reference": "SRG-260604161650",
       "categorie": "Roulements",
-      "quantite": 0,
+      "quantite": 10,
       "qmin": 3,
       "prix_vente": 70.0,
       "unite": "unité"
@@ -97,7 +48,7 @@
       "nom": "6205",
       "reference": "R-5",
       "categorie": "Roulements",
-      "quantite": 5,
+      "quantite": 15,
       "qmin": 5,
       "prix_vente": 17.0,
       "unite": "unité"
@@ -106,7 +57,7 @@
       "nom": "6305",
       "reference": "SRG-260617135515",
       "categorie": "Roulements",
-      "quantite": 2,
+      "quantite": 12,
       "qmin": 3,
       "prix_vente": 20.0,
       "unite": "unité"
