@@ -1,18 +1,43 @@
 {
-  "exported_at": "2026-06-30T01:56:54.776721",
+  "exported_at": "2026-06-30T02:05:18.703121",
   "stats": {
     "total_pieces": 6,
-    "alertes_stock": 0,
-    "factures_aujourd_hui": 0,
-    "ca_aujourd_hui": 0
+    "alertes_stock": 3,
+    "factures_aujourd_hui": 4,
+    "ca_aujourd_hui": 1556.0003550000001
   },
-  "alertes": [],
+  "alertes": [
+    {
+      "nom": "6205",
+      "reference": "R-5",
+      "quantite": 5,
+      "qmin": 5,
+      "manquant": 0,
+      "categorie": ""
+    },
+    {
+      "nom": "1750/17",
+      "reference": "SRG-260604161811",
+      "quantite": 2,
+      "qmin": 2,
+      "manquant": 0,
+      "categorie": ""
+    },
+    {
+      "nom": "6305",
+      "reference": "SRG-260617135515",
+      "quantite": 2,
+      "qmin": 3,
+      "manquant": 1,
+      "categorie": ""
+    }
+  ],
   "pieces": [
     {
       "nom": "1750/17",
       "reference": "SRG-260604161811",
       "categorie": "Courroies",
-      "quantite": 6,
+      "quantite": 2,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -48,7 +73,7 @@
       "nom": "6205",
       "reference": "R-5",
       "categorie": "Roulements",
-      "quantite": 10,
+      "quantite": 5,
       "qmin": 5,
       "prix_vente": 17.0,
       "unite": "unité"
@@ -57,7 +82,7 @@
       "nom": "6305",
       "reference": "SRG-260617135515",
       "categorie": "Roulements",
-      "quantite": 4,
+      "quantite": 2,
       "qmin": 3,
       "prix_vente": 20.0,
       "unite": "unité"
@@ -65,9 +90,25 @@
   ],
   "rapport_du_jour": {
     "date": "2026-06-30",
-    "ca": 0,
-    "profit": 0,
-    "nb_factures": 0,
-    "pieces_vendues": []
+    "ca": 1556.0003550000001,
+    "profit": 71.0,
+    "nb_factures": 4,
+    "pieces_vendues": [
+      {
+        "nom": "6205",
+        "qte": 5,
+        "total": 85.0
+      },
+      {
+        "nom": "1750/17",
+        "qte": 4,
+        "total": 100.0
+      },
+      {
+        "nom": "6305",
+        "qte": 2,
+        "total": 40.0
+      }
+    ]
   }
 }
