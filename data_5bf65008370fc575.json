@@ -1,10 +1,10 @@
 {
-  "exported_at": "2026-06-30T02:06:53.364827",
+  "exported_at": "2026-06-30T02:08:19.455391",
   "stats": {
     "total_pieces": 6,
-    "alertes_stock": 3,
-    "factures_aujourd_hui": 4,
-    "ca_aujourd_hui": 1556.0003550000001
+    "alertes_stock": 6,
+    "factures_aujourd_hui": 5,
+    "ca_aujourd_hui": 2276.000355
   },
   "alertes": [
     {
@@ -16,11 +16,35 @@
       "categorie": ""
     },
     {
+      "nom": "32212",
+      "reference": "SRG-260604161650",
+      "quantite": 0,
+      "qmin": 3,
+      "manquant": 3,
+      "categorie": ""
+    },
+    {
       "nom": "1750/17",
       "reference": "SRG-260604161811",
       "quantite": 2,
       "qmin": 2,
       "manquant": 0,
+      "categorie": ""
+    },
+    {
+      "nom": "30216",
+      "reference": "SRG-260610232547",
+      "quantite": 2,
+      "qmin": 4,
+      "manquant": 2,
+      "categorie": ""
+    },
+    {
+      "nom": "1900/17",
+      "reference": "SRG-260610232630",
+      "quantite": 1,
+      "qmin": 2,
+      "manquant": 1,
       "categorie": ""
     },
     {
@@ -46,7 +70,7 @@
       "nom": "1900/17",
       "reference": "SRG-260610232630",
       "categorie": "Courroies",
-      "quantite": 5,
+      "quantite": 1,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -55,7 +79,7 @@
       "nom": "30216",
       "reference": "SRG-260610232547",
       "categorie": "Roulements",
-      "quantite": 5,
+      "quantite": 2,
       "qmin": 4,
       "prix_vente": 90.0,
       "unite": "unité"
@@ -64,7 +88,7 @@
       "nom": "32212",
       "reference": "SRG-260604161650",
       "categorie": "Roulements",
-      "quantite": 5,
+      "quantite": 0,
       "qmin": 3,
       "prix_vente": 70.0,
       "unite": "unité"
@@ -90,9 +114,9 @@
   ],
   "rapport_du_jour": {
     "date": "2026-06-30",
-    "ca": 1556.0003550000001,
-    "profit": 71.0,
-    "nb_factures": 4,
+    "ca": 2276.000355,
+    "profit": 306.0,
+    "nb_factures": 5,
     "pieces_vendues": [
       {
         "nom": "6205",
@@ -100,9 +124,24 @@
         "total": 85.0
       },
       {
+        "nom": "32212",
+        "qte": 5,
+        "total": 350.0
+      },
+      {
         "nom": "1750/17",
         "qte": 4,
         "total": 100.0
+      },
+      {
+        "nom": "1900/17",
+        "qte": 4,
+        "total": 100.0
+      },
+      {
+        "nom": "30216",
+        "qte": 3,
+        "total": 270.0
       },
       {
         "nom": "6305",
