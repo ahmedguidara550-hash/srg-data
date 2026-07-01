@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-07-01T10:24:42.096094",
+  "exported_at": "2026-07-01T16:29:24.629097",
   "stats": {
     "total_pieces": 6,
     "alertes_stock": 0,
@@ -66,8 +66,14 @@
   "rapport_du_jour": {
     "date": "2026-07-01",
     "ca": 150.0,
-    "profit": 0,
+    "profit": 60.0,
     "nb_factures": 1,
-    "pieces_vendues": []
+    "pieces_vendues": [
+      {
+        "nom": "1900/17",
+        "qte": 6,
+        "total": 150.0
+      }
+    ]
   }
 }
