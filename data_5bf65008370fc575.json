@@ -1,18 +1,27 @@
 {
-  "exported_at": "2026-07-09T11:26:52.033122",
+  "exported_at": "2026-07-09T11:30:19.340181",
   "stats": {
     "total_pieces": 6,
-    "alertes_stock": 0,
-    "factures_aujourd_hui": 0,
-    "ca_aujourd_hui": 0
+    "alertes_stock": 1,
+    "factures_aujourd_hui": 3,
+    "ca_aujourd_hui": 1730.000135
   },
-  "alertes": [],
+  "alertes": [
+    {
+      "nom": "1900/17",
+      "reference": "SRG-260610232630",
+      "quantite": 2,
+      "qmin": 2,
+      "manquant": 0,
+      "categorie": ""
+    }
+  ],
   "pieces": [
     {
       "nom": "1750/17",
       "reference": "SRG-260604161811",
       "categorie": "Courroies",
-      "quantite": 12,
+      "quantite": 8,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -21,7 +30,7 @@
       "nom": "1900/17",
       "reference": "SRG-260610232630",
       "categorie": "Courroies",
-      "quantite": 4,
+      "quantite": 2,
       "qmin": 2,
       "prix_vente": 25.0,
       "unite": "unité"
@@ -30,7 +39,7 @@
       "nom": "30216",
       "reference": "SRG-260610232547",
       "categorie": "Roulements",
-      "quantite": 20,
+      "quantite": 8,
       "qmin": 4,
       "prix_vente": 90.0,
       "unite": "unité"
@@ -39,7 +48,7 @@
       "nom": "32212",
       "reference": "SRG-260604161650",
       "categorie": "Roulements",
-      "quantite": 10,
+      "quantite": 5,
       "qmin": 3,
       "prix_vente": 70.0,
       "unite": "unité"
@@ -48,7 +57,7 @@
       "nom": "6205",
       "reference": "R-5",
       "categorie": "Roulements",
-      "quantite": 15,
+      "quantite": 6,
       "qmin": 5,
       "prix_vente": 17.0,
       "unite": "unité"
@@ -57,7 +66,7 @@
       "nom": "6305",
       "reference": "SRG-260617135515",
       "categorie": "Roulements",
-      "quantite": 12,
+      "quantite": 6,
       "qmin": 3,
       "prix_vente": 20.0,
       "unite": "unité"
@@ -65,9 +74,35 @@
   ],
   "rapport_du_jour": {
     "date": "2026-07-09",
-    "ca": 0,
-    "profit": 0,
-    "nb_factures": 0,
-    "pieces_vendues": []
+    "ca": 1730.000135,
+    "profit": 433.0,
+    "nb_factures": 3,
+    "pieces_vendues": [
+      {
+        "nom": "30216",
+        "qte": 12,
+        "total": 1080.0
+      },
+      {
+        "nom": "6305",
+        "qte": 6,
+        "total": 120.0
+      },
+      {
+        "nom": "6205",
+        "qte": 5,
+        "total": 85.0
+      },
+      {
+        "nom": "32212",
+        "qte": 5,
+        "total": 350.0
+      },
+      {
+        "nom": "1750/17",
+        "qte": 4,
+        "total": 100.0
+      }
+    ]
   }
 }
