@@ -1,10 +1,10 @@
 {
-  "exported_at": "2026-07-09T11:33:48.032202",
+  "exported_at": "2026-07-26T01:54:49.426216",
   "stats": {
     "total_pieces": 6,
     "alertes_stock": 1,
-    "factures_aujourd_hui": 3,
-    "ca_aujourd_hui": 1730.000135
+    "factures_aujourd_hui": 0,
+    "ca_aujourd_hui": 0
   },
   "alertes": [
     {
@@ -73,36 +73,10 @@
     }
   ],
   "rapport_du_jour": {
-    "date": "2026-07-09",
-    "ca": 1730.000135,
-    "profit": 433.0,
-    "nb_factures": 3,
-    "pieces_vendues": [
-      {
-        "nom": "30216",
-        "qte": 12,
-        "total": 1080.0
-      },
-      {
-        "nom": "6305",
-        "qte": 6,
-        "total": 120.0
-      },
-      {
-        "nom": "6205",
-        "qte": 5,
-        "total": 85.0
-      },
-      {
-        "nom": "32212",
-        "qte": 5,
-        "total": 350.0
-      },
-      {
-        "nom": "1750/17",
-        "qte": 4,
-        "total": 100.0
-      }
-    ]
+    "date": "2026-07-26",
+    "ca": 0,
+    "profit": 0,
+    "nb_factures": 0,
+    "pieces_vendues": []
   }
 }
